@@ -1,4 +1,3 @@
 ## Exam Repository 
 
-
-# Datastructs_and_Algorithms_EE205
+Keeping track of various practice algorithms
