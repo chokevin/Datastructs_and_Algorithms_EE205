@@ -37,19 +37,43 @@ IntList::IntList( const IntList &other){
 	}
 	p1 -> next = 0;
 
+/*
+	if(&other != this){
+		ListNode* tmp = first;
+		while(tmp->next != NULL){
+			first = first->next;
+			delete tmp;
+			tmp = first;
+		}
+		num = 0;
+		while(tmp != NULL){
+			this->first = tmp.first;
+			this->value = tmp->value;
+		}
+	}*/
 }
 
 
 IntList::~IntList(){
 	num = 0;
-	free(first);
+	while(first != NULL){
+		ListNode* temp = first;
+		first = first->next;
+		free(temp);
+	}
+	first = NULL;
 
 }
 
 
 IntList& IntList::operator=(const IntList &other){
-	this->num = other.num;
-	this->first = other.first;
+	ListNode* temp = other.first;
+	while(temp){
+		first = other.first;
+		first->next = new ListNode;
+		first = first->next;
+		temp = temp->next;
+	}
 	return *this;
 }
 
