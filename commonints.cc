@@ -13,6 +13,8 @@ int CountCommon(T *A, int sizeA, T* B, int sizeB){
 	}
 	return count;
 
+
+
 }
 
 int countcommon(int *A, int sizeA, int *B, int sizeB){
@@ -38,7 +40,7 @@ int countcommon(int *A, int sizeA, int *B, int sizeB){
 	}
 	return count;*/
 
-	// only works with sorted arrays
+	// doesnt work;
 	int bigsize;
 	int i, j;
 	int count = 0;
@@ -64,18 +66,31 @@ int countcommon(int *A, int sizeA, int *B, int sizeB){
 	return count;
 }
 
+template<typename Iterator1, typename Iterator2>
+int countcom(Iterator1 A_start, Iterator1 A_end, Iterator2 B_start, Iterator2 B_end){
+	int count;
+	for(typename Iterator1::iterator it = A_start; it!= A_end; it++){
+		for(typename Iterator2::iterator it2 = B_start; it2!=B_end; it2++){
+			if(*it == *it2) count++;
+		}
+	}
+	return count;
+}
+
 int main(){
 
 	int A[7] = {1,3,5,6,7,3,3};
-	int B[5] = {2,4,6,7,3};
+	int B[5] = {1,2,4,6,7};
 	char C[4] = {'c','d','e','f'};
 	char D[3] = {'c','d','f'};
 	int sizeA = 7;
 	int sizeB = 5;
 	int sizeC = 4;
-	int sizeD = 3x;
+	int sizeD = 3;
 	int output = CountCommon(A,sizeA,B,sizeB);
 	std::cout << "The number of common integers is: " << output << std::endl;
+	//output = countcommon(A,sizeA,B,sizeB);
+	//std::cout << "The number of common integers is: " << output << std::endl;
 	output = CountCommon(C,sizeC,D,sizeD);
 	std::cout << "The number of common integers is: " << output << std::endl;
 	
