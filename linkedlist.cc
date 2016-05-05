@@ -69,7 +69,7 @@ IntList::~IntList(){
 IntList& IntList::operator=(const IntList &other){
 	ListNode* temp = other.first;
 	while(temp){
-		first = other.first;
+		first = temp;
 		first->next = new ListNode;
 		first = first->next;
 		temp = temp->next;
